@@ -1,0 +1,51 @@
+{
+  "name": "eslint-plugin-logdna",
+  "version": "0.0.0",
+  "description": "ESlint plugin containing a collection of rules for enforcing code style at LogDNA",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin",
+    "logdna"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/logdna/eslint-plugin-logdna.git"
+  },
+  "author": {
+    "name": "LogDNA, Inc."
+  },
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/logdna/eslint-plugin-logdna/issues"
+  },
+  "homepage": "https://github.com/logdna/eslint-plugin-logdna#readme",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint ./",
+    "tap": "tap",
+    "pretest": "npm run lint",
+    "test": "tap"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": "logdna",
+    "ignorePatterns": [
+      "node_modules/",
+      "coverage/"
+    ]
+  },
+  "dependencies": {
+    "dot-prop": "^5.3.0",
+    "is-builtin-module": "^3.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.11.0",
+    "eslint-config-logdna": "^2.0.0",
+    "tap": "^14.10.8"
+  }
+}
