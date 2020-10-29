@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-logdna",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "ESlint plugin containing a collection of rules for enforcing code style at LogDNA",
   "private": false,
   "publishConfig": {
