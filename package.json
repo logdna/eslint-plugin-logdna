@@ -2,6 +2,13 @@
   "name": "eslint-plugin-logdna",
   "version": "1.0.0",
   "description": "ESlint plugin containing a collection of rules for enforcing code style at LogDNA",
+  "main": "lib/index.js",
+  "files": [
+    "lib/**/*",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -24,7 +31,6 @@
     "url": "https://github.com/logdna/eslint-plugin-logdna/issues"
   },
   "homepage": "https://github.com/logdna/eslint-plugin-logdna#readme",
-  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint ./",
     "tap": "tap",
