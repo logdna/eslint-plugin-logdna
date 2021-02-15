@@ -5,13 +5,18 @@
   "main": "lib/index.js",
   "files": [
     "lib/**/*",
-    "index.js",
     "README.md",
     "LICENSE"
   ],
   "private": false,
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "extends": "semantic-release-config-logdna"
   },
   "keywords": [
     "eslint",
@@ -35,7 +40,8 @@
     "lint": "eslint ./",
     "tap": "tap",
     "pretest": "npm run lint",
-    "test": "tap"
+    "test": "tap",
+    "release": "semantic-release"
   },
   "eslintConfig": {
     "root": true,
@@ -52,6 +58,8 @@
   "devDependencies": {
     "eslint": "^7.20.0",
     "eslint-config-logdna": "^4.0.2",
+    "semantic-release": "^17.3.9",
+    "semantic-release-config-logdna": "^1.1.0",
     "tap": "^14.10.8"
   }
 }

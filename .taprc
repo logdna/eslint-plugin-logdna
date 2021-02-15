@@ -2,16 +2,17 @@ esm: false
 ts: false
 jsx: false
 check-coverage: true
+browser: false
 100: true
 reporter: classic
 nyc-arg:
 - --all=true
 - --exclude=test/
-output-file: .tap
-browser: false
+output-file: .tap-output
 coverage-report:
 - text
 - text-summary
+- json-summary
 - html
 files:
 - test/lib
