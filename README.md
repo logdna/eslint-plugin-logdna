@@ -23,13 +23,22 @@ the `eslint-plugin-` prefix. Then you can configure the rules you want to use:
     "logdna"
   ],
   "rules": {
-    "logdna/grouped-require": "error",
-    "logdna/require-file-extension": "error",
-    "logdna/tap-consistent-assertions": {
+    "logdna/grouped-require": 2,
+    "logdna/require-file-extension": 2,
+    "logdna/tap-consistent-assertions": [2, {
       "preferredMap": {
-        "equal": "strictEqual"
+        "error": "error",
+        "equal": "strictEqual",
+        "not": "notStrictEqual",
+        "same": "deepEqual",
+        "notSame": "notDeepEqual",
+        "strictSame": "strictDeepEqual",
+        "strictNotSame": "strictDeepNotEqual",
+        "match": "match",
+        "notMatch": "notMatch",
+        "type": "type"
       }
-    }
+    }]
   }
 }
 ```
