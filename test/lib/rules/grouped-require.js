@@ -11,10 +11,12 @@ test(RULE_NAME, async (t) => {
     valid: [
       {
         code: `
-          require('timers')
+          const dynamic = './something.js';
+          require('timers');
           run()
           const net = require('net');
           const http = require('http');
+          const something = require(dynamic)
           const {promisify} = require('util')
           const jquery = require('jquery');
           const bar = require('@foo/bar')
