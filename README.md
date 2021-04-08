@@ -28,18 +28,11 @@ the `eslint-plugin-` prefix. Then you can configure the rules you want to use:
   "rules": {
     "logdna/grouped-require": 2,
     "logdna/require-file-extension": 2,
+    "logdna/tap-no-deprecated-aliases": 2,
     "logdna/tap-consistent-assertions": [2, {
       "preferredMap": {
         "error": "error",
         "equal": "strictEqual",
-        "not": "notStrictEqual",
-        "same": "deepEqual",
-        "notSame": "notDeepEqual",
-        "strictSame": "strictDeepEqual",
-        "strictNotSame": "strictDeepNotEqual",
-        "match": "match",
-        "notMatch": "notMatch",
-        "type": "type"
       }
     }]
   }
@@ -50,7 +43,7 @@ the `eslint-plugin-` prefix. Then you can configure the rules you want to use:
 
 ### `logdna/grouped-require`
 
-Enforce sorted require declarations within modules
+> Enforce sorted require declarations within modules
 
 ```js
 // Bad
@@ -73,9 +66,36 @@ const foo = require('./lib/foo.js') //local
 * `typeOrder` [`<Array>`][] - sort order of require types 
 (default: `['static', 'builtin', 'contrib', 'scoped', 'local']`)
 
-### `logdna/tap-consistent-assertions`
+### `logdna/tap-no-deprecated-aliases`
 
-Enforce consistent aliases for tap assertions
+> Prevent usage of deprecated tap aliases (>= tap@15.0.0)
+
+Tap deprecated assertion aliases as of version [`15.0.0`](https://node-tap.org/changelog/#150---2021-03-30). 
+This rule supersedes `logdna/tap-consistent-assertions` and will enforce the use of unaliased
+assertion methods.  
+
+```js
+// Bad
+test('foo', async (t) => {
+  t.is_equal(1, 1)
+  t.strictEqual(1, 1)
+  t.identical(1, 1)
+})
+
+// Good
+test('foo', async (t) => {
+  t.equal(1, 1)
+  t.equal(1, 1)
+  t.equal(1, 1)
+})
+```
+
+#### Options
+* `calleePattern` [`<String>`][] - pattern to match for tap's `Test` object (default: `/^t+$/`)
+
+### [**Deprecated**] `logdna/tap-consistent-assertions`
+
+> Enforce consistent aliases for tap assertions
 
 ```js
 // {
@@ -112,7 +132,7 @@ test('foo', async (t) => {
 
 ### `logdna/require-file-extension`
 
-Enforce file extension for local modules/files
+> Enforce file extension for local modules/files
 
 ```js
 // Bad
