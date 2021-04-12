@@ -1,5 +1,22 @@
 ## Changelog
 
+# [2.0.0](https://github.com/logdna/eslint-plugin-logdna/compare/v1.0.1...v2.0.0) (2021-04-12)
+
+
+### Features
+
+* **rules**: add tap-no-deprecated-aliases rule [436e120](https://github.com/logdna/eslint-plugin-logdna/commit/436e120df817cdb511e653103d33884553faa457) - Mike Del Tito
+
+
+### **BREAKING CHANGES**
+
+* **rules:** deprecated `tap-consistent-assertions` rule
+
+tap@15.0.0 deprecated the use of aliases for assertion methods, which
+invalidates the concept of a "preferred" alias. This adds a separate
+rule for enforcing the use of unaliased assertion methods. This rule
+is auto-fixable.
+
 ## [1.0.1](https://github.com/logdna/eslint-plugin-logdna/compare/v1.0.0...v1.0.1) (2021-02-16)
 
 
