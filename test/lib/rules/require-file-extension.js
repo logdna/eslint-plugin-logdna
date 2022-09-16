@@ -17,19 +17,27 @@ test(RULE_NAME, async (t) => {
           if (bar) {
             const baz = require('./baz.json');
           }
+          registerTransform(require('./transforms/parse.js'))
+          module.exports = {
+            bar: require('./bar2.js')
+          }
         `
       }
     ]
   , invalid: [
       {
         code: `
-          const foo = require('../test/foo')
+          const foo = require('../test/foo');
           if (bar) {
             const baz = require('./baz');
           }
+          registerTransform(require('../transforms/parse'))
+          module.exports = require('../foo/bar');
         `
       , errors: [
           {message: 'Missing file extension for local module.'}
+        , {message: 'Missing file extension for local module.'}
+        , {message: 'Missing file extension for local module.'}
         , {message: 'Missing file extension for local module.'}
         ]
       }

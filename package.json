@@ -38,6 +38,7 @@
   "homepage": "https://github.com/logdna/eslint-plugin-logdna#readme",
   "scripts": {
     "lint": "eslint ./",
+    "lint:fix": "eslint --fix ./",
     "tap": "tap",
     "pretest": "npm run lint",
     "test": "tap",
