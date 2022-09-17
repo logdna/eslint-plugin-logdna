@@ -1,5 +1,12 @@
 ## Changelog
 
+## [2.0.1](https://github.com/logdna/eslint-plugin-logdna/compare/v2.0.0...v2.0.1) (2022-09-17)
+
+
+### Bug Fixes
+
+* **rules**: Check static require in expressions [72964d0](https://github.com/logdna/eslint-plugin-logdna/commit/72964d013b9ef97b1d67fe014baef872ca2f1bab) - Eric Satterwhite, closes: [#6](https://github.com/logdna/eslint-plugin-logdna/issues/6)
+
 # [2.0.0](https://github.com/logdna/eslint-plugin-logdna/compare/v1.0.1...v2.0.0) (2021-04-12)
 
 
