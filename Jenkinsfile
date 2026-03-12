@@ -5,11 +5,18 @@ def REPO = "logdna/${PROJECT_NAME}"
 def TRIGGER_PATTERN = ".*@logdnabot.*"
 def CURRENT_BRANCH = [env.CHANGE_BRANCH, env.BRANCH_NAME]?.find{branch -> branch != null}
 def DEFAULT_BRANCH = 'main'
+def BUILD_SLUG = slugify(BUILD_TAG)
 
 pipeline {
-  agent none
+  agent {
+      node {
+          label 'ec2-fleet'
+          customWorkspace("/tmp/workspace/${BUILD_SLUG}")
+      }
+  }
 
   options {
+    timeout time: 1, unit: 'HOURS'
     timestamps()
     ansiColor 'xterm'
   }
@@ -36,7 +43,7 @@ pipeline {
         axes {
           axis {
             name 'NODE_VERSION'
-            values '12', '14', '15'
+            values '20', '22', '24'
           }
         }
 
@@ -91,7 +98,7 @@ pipeline {
 
       agent {
         docker {
-          image "us.gcr.io/logdna-k8s/node:12-ci"
+          image "us.gcr.io/logdna-k8s/node:22-ci"
           customWorkspace "${PROJECT_NAME}-${BUILD_NUMBER}"
         }
       }
@@ -110,7 +117,7 @@ pipeline {
       steps {
         sh 'mkdir -p .npm'
         sh 'npm install'
-        sh "npm run release -- --dry-run --no-ci --branches ${CURRENT_BRANCH}"
+        sh "npm run release:dry"
       }
     }
 
@@ -122,7 +129,7 @@ pipeline {
 
       agent {
         docker {
-          image "us.gcr.io/logdna-k8s/node:12-ci"
+          image "us.gcr.io/logdna-k8s/node:22-ci"
           customWorkspace "${PROJECT_NAME}-${BUILD_NUMBER}"
         }
       }
