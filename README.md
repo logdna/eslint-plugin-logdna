@@ -5,6 +5,10 @@
 
 > ESlint plugin containing a collection of rules for enforcing code style at LogDNA
 
+## Requirements
+
+- ESLint >= 9.0.0
+
 ## Installation
 
 **Requires eslint also**
@@ -17,26 +21,37 @@ npm install eslint-plugin-logdna eslint --save-dev
 
 ## Usage
 
-Add `logdna` to the plugins section of your ESLint configuration. You can omit 
-the `eslint-plugin-` prefix. Then you can configure the rules you want to use:
+### Using flat config (eslint.config.js)
 
-```json
-{
-  "plugins": [
-    "logdna"
-  ],
-  "rules": {
-    "logdna/grouped-require": 2,
-    "logdna/require-file-extension": 2,
-    "logdna/tap-no-deprecated-aliases": 2,
-    "logdna/tap-consistent-assertions": [2, {
-      "preferredMap": {
-        "error": "error",
-        "equal": "strictEqual",
-      }
-    }]
+Import the plugin and use it in your flat config:
+
+```js
+// eslint.config.js
+const logdna = require('eslint-plugin-logdna')
+
+module.exports = [
+  {
+    plugins: {
+      logdna
+    },
+    rules: {
+      'logdna/grouped-require': 'error',
+      'logdna/require-file-extension': 'error',
+      'logdna/tap-no-deprecated-aliases': 'error'
+    }
   }
-}
+]
+```
+
+Or use the recommended configuration:
+
+```js
+// eslint.config.js
+const logdna = require('eslint-plugin-logdna')
+
+module.exports = [
+  logdna.configs.recommended
+]
 ```
 
 ## Rules
@@ -98,18 +113,23 @@ test('foo', async (t) => {
 > Enforce consistent aliases for tap assertions
 
 ```js
-// {
-//   "plugins": [
-//     "logdna"
-//   ],
-//   "rules": {
-//     "logdna/tap-consistent-assertions": {
-//       "preferredMap": {
-//         "equal": "strictEqual"
-//       }
-//     }
-//   }
-// }
+// eslint.config.js
+const logdna = require('eslint-plugin-logdna')
+
+module.exports = [
+  {
+    plugins: {
+      logdna
+    },
+    rules: {
+      'logdna/tap-consistent-assertions': ['error', {
+        preferredMap: {
+          equal: 'strictEqual'
+        }
+      }]
+    }
+  }
+]
 
 // Bad
 test('foo', async (t) => {

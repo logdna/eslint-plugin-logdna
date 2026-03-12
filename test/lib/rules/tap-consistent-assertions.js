@@ -93,9 +93,9 @@ test(RULE_NAME, async (t) => {
           preferredMap: {same: 'deepEqual', equal: 'strictEqual'}
         }]
       , errors: [
-          {message: 'The "strictEqual" alias is preferred over "strict_equals"'}
-        , {message: 'The "deepEqual" alias is preferred over "same"'}
-        , {message: 'The "strictEqual" alias is preferred over "strict_equals"'}
+          {messageId: 'usePreferredAlias'}
+        , {messageId: 'usePreferredAlias'}
+        , {messageId: 'usePreferredAlias'}
         ]
       }
     ]

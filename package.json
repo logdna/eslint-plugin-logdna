@@ -44,23 +44,18 @@
     "test": "tap",
     "release": "semantic-release"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": "logdna",
-    "ignorePatterns": [
-      "node_modules/",
-      "coverage/"
-    ]
-  },
   "dependencies": {
     "dot-prop": "^5.3.0",
     "is-builtin-module": "^3.0.0"
   },
   "devDependencies": {
-    "eslint": "^7.20.0",
+    "eslint": "^10.0.0",
     "eslint-config-logdna": "^4.0.2",
     "semantic-release": "^17.3.9",
     "semantic-release-config-logdna": "^1.1.0",
     "tap": "^14.10.8"
+  }
+  , "peerDependencies": {
+    "eslint": ">=9.0.0"
   }
 }

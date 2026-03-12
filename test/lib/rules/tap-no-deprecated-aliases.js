@@ -37,7 +37,7 @@ test(RULE_NAME, async (t) => {
         })
       `
       , errors: [
-          {message: 'The "deepEqual" alias is deprecated in favor of "same"'}
+          {messageId: 'deprecatedAlias'}
         ]
       }
     , {
