@@ -35,10 +35,10 @@ test(RULE_NAME, async (t) => {
           module.exports = require('../foo/bar');
         `
       , errors: [
-          {message: 'Missing file extension for local module.'}
-        , {message: 'Missing file extension for local module.'}
-        , {message: 'Missing file extension for local module.'}
-        , {message: 'Missing file extension for local module.'}
+          {messageId: 'missingExtension'}
+        , {messageId: 'missingExtension'}
+        , {messageId: 'missingExtension'}
+        , {messageId: 'missingExtension'}
         ]
       }
     ]

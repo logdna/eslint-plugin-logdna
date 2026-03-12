@@ -1,10 +1,22 @@
 'use strict'
 
 const {RuleTester} = require('eslint')
+
+// ESLint v9+ uses languageOptions instead of parserOptions
 const ruleTester = new RuleTester({
-  parserOptions: {
-    ecmaVersion: 2019
+  languageOptions: {
+    ecmaVersion: 2022
   , sourceType: 'script'
+  , globals: {
+      require: 'readonly'
+    , module: 'readonly'
+    , exports: 'writable'
+    , __dirname: 'readonly'
+    , __filename: 'readonly'
+    , process: 'readonly'
+    , console: 'readonly'
+    , Buffer: 'readonly'
+    }
   }
 })
 

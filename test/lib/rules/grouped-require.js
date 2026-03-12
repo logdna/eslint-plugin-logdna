@@ -67,8 +67,8 @@ test(RULE_NAME, async (t) => {
           }
         `
       , errors: [
-          {message: "Expected 'static' require before 'contrib' require."}
-        , {message: "Expected 'scoped' require before 'local' require."}
+          {messageId: 'wrongOrder'}
+        , {messageId: 'wrongOrder'}
         ]
       }
     ]

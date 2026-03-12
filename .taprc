@@ -8,6 +8,7 @@ reporter: classic
 nyc-arg:
 - --all=true
 - --exclude=test/
+- --exclude=eslint.config.js
 output-file: .tap-output
 coverage-report:
 - text
