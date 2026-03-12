@@ -1,5 +1,18 @@
 ## Changelog
 
+# [3.0.0](https://github.com/logdna/eslint-plugin-logdna/compare/v2.0.1...v3.0.0) (2026-03-12)
+
+
+### Chores
+
+* **ci**: simplify jenkins release setup [d92feb8](https://github.com/logdna/eslint-plugin-logdna/commit/d92feb8d13640b3b649ce4fac444fef824a60082) - Eric Satterwhite
+* **deps**: eslint@9 [176b82f](https://github.com/logdna/eslint-plugin-logdna/commit/176b82f7d5f01dd7d89f0fbca93b51bc932df269) - Eric Satterwhite, closes: [#12](https://github.com/logdna/eslint-plugin-logdna/issues/12)
+
+
+### **BREAKING CHANGES**
+
+* **deps:** minimum eslint >= 9
+
 ## [2.0.1](https://github.com/logdna/eslint-plugin-logdna/compare/v2.0.0...v2.0.1) (2022-09-17)
 
 

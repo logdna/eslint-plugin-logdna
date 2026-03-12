@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-logdna",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "ESlint plugin containing a collection of rules for enforcing code style at LogDNA",
   "main": "lib/index.js",
   "files": [
@@ -55,8 +55,8 @@
     "semantic-release": "^17.3.9",
     "semantic-release-config-logdna": "^1.1.0",
     "tap": "^14.10.8"
-  }
-  , "peerDependencies": {
+  },
+  "peerDependencies": {
     "eslint": ">=9.0.0"
   }
 }
